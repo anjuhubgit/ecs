@@ -3,6 +3,8 @@ on:
    push:
       branches: 
       - main
+env: 
+ CONTAINER_NAME: 'nodejs'
 
 jobs: 
  build-and-run:
