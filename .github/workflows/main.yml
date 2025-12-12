@@ -39,8 +39,8 @@ jobs:
        IMAGE_TAG: ${{ github.sha }}
        AWS_REGION: ${{ secrets.REGION }}
     run: |
-       IMAGE_TAG="${GITHUB_SHA:0:8}-$(date +%s)"
-       IMAGE_URI="$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+       image-tag="${GITHUB_SHA:0:8}-$(date +%s)"
+       image-uri="$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
        echo "Building image: $IMAGE_URI"
        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
@@ -51,7 +51,7 @@ jobs:
   - name: Download current task
     run: |
      aws ecs describe-task-definition \
-          --task-definition nodejs-stage-anju-task:1 \
+          --task-definition nodejs-stage-anju-task:2 \
           --query taskDefinition > task-definition.json
 
   - name: Update task defination with new image
