@@ -7,7 +7,7 @@ env:
  CONTAINER_NAME: 'nodejs'
 
 jobs: 
- build-and-run:
+ build-and-push:
   runs-on: ubuntu-latest
   outputs:
       image-tag: ${{ steps.build-image.outputs.image-tag }}
@@ -60,7 +60,7 @@ jobs:
     with:
         task-definition: task-definition.json
         container-name: ${{ env.CONTAINER_NAME }}
-        image: ${{ needs.build-and-run.outputs.image-uri }}
+        image: ${{ needs.build-and-push.outputs.image-uri }}
   
   - name: Deploy to Amazon ECS service
     uses: aws-actions/amazon-ecs-deploy-task-definition@v2
