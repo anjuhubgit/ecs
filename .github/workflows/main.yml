@@ -5,8 +5,8 @@ on:
       - main
 env: 
  CONTAINER_NAME: 'node'
- ECS_SERVICE: 'nodejs-anju-stage-task-service-4yt3we3w'
- ECS_CLUSTER: 'anju-node-stage'
+ ECS_SERVICE: 'stage-nodejs-anju-service'
+ ECS_CLUSTER: 'anju-stage-clust'
  
 
 jobs: 
@@ -51,7 +51,7 @@ jobs:
   - name: Download current task
     run: |
      aws ecs describe-task-definition \
-          --task-definition nodejs-anju-stage-task:1 \
+          --task-definition stage-nodejs-anju \
           --query taskDefinition > task-definition.json
 
   - name: Update task defination with new image
