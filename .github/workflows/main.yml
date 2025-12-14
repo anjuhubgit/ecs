@@ -4,7 +4,7 @@ on:
       branches: 
       - main
 env: 
- CONTAINER_NAME: 'nodejs'
+ CONTAINER_NAME: 'node'
 
 jobs: 
  build-and-run:
