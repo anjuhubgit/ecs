@@ -5,6 +5,9 @@ on:
       - main
 env: 
  CONTAINER_NAME: 'node'
+ ECS_SERVICE: 'nodejs-anju-stage-task-service-4yt3we3w'
+ ECS_CLUSTER: 'anju-node-stage'
+ 
 
 jobs: 
  build-and-run:
