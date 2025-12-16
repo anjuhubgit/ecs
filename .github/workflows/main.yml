@@ -12,9 +12,6 @@ env:
 jobs: 
  build-and-run:
   runs-on: ubuntu-latest
-  #outputs:
-     # image-tag: ${{ steps.build-image.outputs.image-tag }}
-     # image-uri: ${{ steps.build-image.outputs.image-uri }}
 
 
   steps:
