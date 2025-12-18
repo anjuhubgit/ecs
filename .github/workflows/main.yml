@@ -48,7 +48,7 @@ jobs:
   - name: Download current task
     run: |
      aws ecs describe-task-definition \
-          --task-definition node-stage-aj:3 \
+          --task-definition node-stage-aj:6 \
           --query taskDefinition > task-definition.json
 
   - name: Update task defination with new image
